@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+    <style type="text/css">
+    * {
+		  font-family: Arial;
+      font-size: 12px;
+      color: #2D2C2A;
+	  }
+    body{
+      background-color: white;
+    }
+    h4{
+      padding: 0px;
+      margin: 9px;
+      margin-top: 25px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    select{
+     width:100%;
+		 padding: 10px 10px;
+		 margin: 5px 0;
+		 border: 1px solid #2D2A26;
+     border-radius: 3px;
+		 outline: none;
+		 background: transparent;
+     background-image: linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+	 }
+   input{
+		 width: 90%;
+		 padding: 10px 10px;
+		 margin: 5px ;
+     border-top: 0;
+     border-left:0;
+     border-right:0;
+     border-bottom-color: #2D2C2A;
+     border-radius: 3px;
+		 background: transparent;
+     background-image: linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+	 }
+   strong{
+     width: 150%;
+     padding: 10px 10px;
+   }
+   table{
+     padding: 15px;
+     border: 1px solid; 
+     border-color: #2D2C2A;
+     border-radius: 10px;
+
+     width: 100%;
+     //table-layout: fixed;
+   }
+   button{
+		width: 110px;
+		height: 35px;
+		margin: 0 10px;
+		background-color: #FF5B35;
+		border-radius: 30px;
+		border: 0;
+		outline: none;
+		color: #F9F8F0;
+		cursor: pointer;
+ 	}
+    </style>
+
+  
+  <body>
+    
+
+       
+       
+      <script>
+
+        
+
+        function lists(results){
+          
+          var lista3 = document.getElementById(results.objt);
+          
+          for(var n in results.valores) {
+            if (results.valores[n] != "," && results.valores[n] != ",," && results.valores[n] != ",,," && results.valores[n] != ""){
+              var a = results.valores[n].toString().replace(",", " - ");
+              a = a.toString().replace(",", " - ");
+              a = a.toString().replace(",", " - ");
+              
+            lista3.add(new Option(a, a));
+            }
+            else{
+              break;
+            }
+          }
+        };
+
+        
+       //Registrar ingreso de usuarios al formulario
+       google.script.run.userActivity()
+
+      //Poblñar listas desplegables
+       google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","Y2:Z", "expor");
+       google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Generales","K2:L", "orgvta");
+       google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Generales","D2:E", "Moneda");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Generales","G2:H", "cpago");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Paises","A2:B", "pais");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Logisticos","A2:B", "forwarder");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Logisticos","E2:F", "naviera");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Logisticos","I2:J", "Incoterms");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","L2:M", "grVendedores");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales2","D2:E", "ZonaDeVenta");
+        //google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","E2:G", "supervCta");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales2","G2:H", "canal");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","AF2:AG", "CorporateDirector");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","A2:A", "aprobadorFaborable");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales2","A2:B", "salesGroup");
+        google.script.run.withSuccessHandler(lists).rescatarlista("1FZITI4lGNjs5buY8ZYkipr2R030A5EuZXFEKuwWeALU","Comerciales","AP2:AQ", "regionalManager");
+
+
+
+  </script>
+
+<script type="text/javascript">
+
+function ampblockchange(){
+  var solicitudVAR = document.getElementById("solicitu");
+  var tabla2 = document.getElementById("tablaDatosGenerales");
+  var tabla3 = document.getElementById("tablaDatosComerciales");
+  var tabla4 = document.getElementById("tablaFinancialdata");
+  var tabla5 = document.getElementById("tablaDispatchInformation");
+  var tabla6 = document.getElementById("tablaComex");
+  var dc1 = document.getElementById("ZonaDeVenta");
+  //var dc2 = document.getElementById("grVendedores");
+  var dc3 = document.getElementById("aprobadorFaborable");
+  var dc4 = document.getElementById("gteComercial");
+  var dc5 = document.getElementById("salesGroup");
+  var lbc1 = document.getElementById("lbc1");
+  var lbc2 = document.getElementById("lbc2");
+  var lbc3 = document.getElementById("lbc3");
+  var lbc4 = document.getElementById("lbc4");
+  var lbc5 = document.getElementById("lbc5");
+  
+
+  if (solicitudVAR.value == "Crear" || solicitudVAR.value == "Modificar"){
+    tabla2.hidden = false;
+    tabla3.hidden = false;
+    tabla4.hidden = false;
+    tabla5.hidden = false;
+    tabla6.hidden = false;
+    dc1.hidden = false;
+    //dc2.hidden = false;
+    dc3.hidden = false;
+    dc4.hidden = false;
+    dc5.hidden = false;
+    lbc1.hidden = false;
+    //lbc2.hidden = false;
+    lbc3.hidden = false;
+    lbc4.hidden = false;
+    lbc5.hidden = false;
+  }
+  else if(solicitudVAR.value == "Ampliar"){
+    tabla2.hidden = true;
+    tabla3.hidden = false;
+    tabla4.hidden = false;
+    tabla5.hidden = false;
+    tabla6.hidden = false;
+    //dc1.hidden = true;
+    //dc2.hidden = true;
+    dc3.hidden = false;
+    dc4.hidden = true;
+    dc5.hidden = true;
+    lbc1.hidden = true;
+    //lbc2.hidden = true;
+    lbc3.hidden = true;
+    lbc4.hidden = true;
+    lbc5.hidden = true;
+  }
+  else {
+    tabla2.hidden = true;
+    tabla3.hidden = true;
+    tabla4.hidden = true;
+    tabla5.hidden = true;
+    tabla6.hidden = true;
+    //dc1.hidden = true;
+    //dc2.hidden = true;
+    dc3.hidden = true;
+    dc4.hidden = true;
+    dc5.hidden = true;
+    lbc1.hidden = true;
+    //lbc2.hidden = true;
+    lbc3.hidden = true;
+    lbc4.hidden = true;
+    lbc5.hidden = true;
+  }
+
+}
+
+function carg() { //CÓDIGO DE MODIFICACIÓN DENTRO DEL FORMULARIO
+ var amb = document.getElementById("ambito");
+ var solici = document.getElementById("solicitante");
+ var solicitudVAR = document.getElementById("solicitu");
+ var cbox2 = document.getElementById("cbox2");
+ var cbox2strong = document.getElementById("cbox2strong");
+ var codeSoldTo = document.getElementById("soldToPartyCode");
+ 
+ if (solicitudVAR.value == "Crear"){
+    if(amb.value == "Solicitante" ){
+      //solici.disabled = true;
+      
+      solici.disabled = true;
+      solici.value = "";
+      solici.hidden = true;
+      codeSoldTo.hidden = true;
+      solici.setAttribute("data-obligatoriocreacion", "0");
+      codeSoldTo.setAttribute("data-obligatorioMod", "0");
+
+      cbox2.hidden = false;
+      cbox2strong.hidden = false;
+      
+    }else{
+      solici.disabled = false;
+      solici.placeholder = "Sold-to Party Code";
+      solici.hidden = false;
+      solici.setAttribute("data-obligatoriocreacion","1");
+      codeSoldTo.setAttribute("data-obligatorioMod","0");
+      codeSoldTo.hidden = true;
+      
+      cbox2.hidden = true;
+      cbox2strong.hidden = true;
+
+      //document.getElementById("solicitante").style.padding = "100, 200, 300, 400";
+      //solici.disabled = false;
+    }
+  }
+  else if ((solicitudVAR.value == "Ampliar") && (amb.value == "Destinatario" || amb.value == "Pagador Central")){
+    solici.disabled = false;
+    solici.placeholder = "Client Code";
+    solici.hidden = false;
+    codeSoldTo.hidden = false;
+    codeSoldTo.placeholder = "Sold-to Party Code";
+    codeSoldTo.setAttribute("data-obligatorioMod","1");
+    cbox2.hidden = true;
+    cbox2strong.hidden = true;
+
+  }
+  else {
+    solici.disabled = false;
+    solici.placeholder = "Client Code";
+    solici.hidden = false;
+    codeSoldTo.hidden = true;
+    codeSoldTo.setAttribute("data-obligatorioMod","0");
+    cbox2.hidden = true;
+    cbox2strong.hidden = true;
+
+  }
+}
+
+</script>
+  
+
+  <br>
+
+
+
+  <div class="container">
+  <table border=0>
+  <tr>
+      <th><strong>Type of request</strong></th>
+      <th><strong>Client Type</strong></th>
+      <th><strong></strong></th>
+      <th><strong>Sales Organization</strong></th>
+      <th><strong>Channel</strong></th>
+      
+  </tr>    
+
+<form>
+
+  <tr>
+    <td>  <select   name="solicitu" id="solicitu" onchange="ampblockchange(this); carg(this)"  class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Type of request" data-obligatoriocreacion = "1" data-obligatorioMod = "1" required>
+                      <option class="vacio" value="" selected >Select.....</option>
+                      <option class="blue" value="Crear">Create</option>
+                      <option class="blue" value="Ampliar">Extend</option>
+                      <option class="blue" value="Modificar">Modify</option>
+                      <option class="red" value="Bloquear">Block</option>
+            </select>
+        </td>
+    
+    
+
+
+
+<td>  <select name="ambito" id="ambito" onchange="carg(this)" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Client Type" data-obligatoriocreacion = "1"  data-obligatorioMod = "1" required>
+                      <option class="vacio" value="" selected >Select.....</option>
+                      <option class="blue" value="Solicitante">Sold-to Party</option>
+                      <option class="blue" value="Destinatario">Goods Recipient</option>
+                      <option class="blue" value="Pagador Central">Responsible of Payment</option>
+                      
+        </select>
+        </td>
+<td><input hidden id="solicitante" name="solicitante" type="text" maxlength="40" size="20" nombremostrar = "Client Code"  data-obligatorioMod = "1"/></td>       
+
+
+
+<td>  
+  
+  <select name="orgvta" id="orgvta" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Sales Organization" data-obligatoriocreacion = "1"  data-obligatorioMod = "1" required>
+
+<option class="vacio" value="" selected >Select.....</option>
+
+
+</select> 
+
+
+
+
+</td>
+
+<td><select name="canal" id="canal" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Channel" data-obligatoriocreacion = "1"  data-obligatorioMod = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+
+</tr>  
+
+
+<tr>
+    <td> <strong> </strong> </td>
+    <td> 
+       <strong for="cbox2" id= "cbox2strong" hidden> Same Sold-To-Party as Goods Recipient? <input align = "left" type="checkbox" id="cbox2"  value="Mismo que el destinatario" hidden> </strong>
+      </td>
+     
+    <td><input hidden id="soldToPartyCode" name="soldToPartyCode" type="text" maxlength="40" size="20" nombremostrar = "Sold-To-Party Code"  data-obligatorioMod = "1"/></td>  
+    </tr>  
+
+ </table>       
+<br>
+  
+    <TABLE id="tablaDatosGenerales">
+
+        <tr>
+          <th COLSPAN=10><h4>Basic Fields</h4></th>
+        </tr>
+   
+  
+  <tr>
+  <td><strong>Name</strong></td>
+  <td><strong>VAT N°</strong></td>
+  </tr>
+  <tr>
+ 
+      <!-- Para forzar mayúsculas onkeyup="this.value = this.value.toUpperCase();" -->
+        <td><input id="nombre" name="nombre" type="text" maxlength="70" size="35" class="pepe" onkeyup="this.value = this.value.toUpperCase();" nombremostrar = "Name" data-obligatoriocreacion = "1"/></td>
+        <td><input id="numfiscal" name="numfiscal" type="text" maxlength="40" size="36" class="pepe" nombremostrar = "VAT N°" data-obligatoriocreacion = "1"/></td>
+  </tr>
+
+  <tr>
+    <td><strong>Address</strong></td>
+    <td><strong>N°</strong></td>
+  </tr>
+
+  <tr>
+    <td><input id="direccion" name="direccion" type="text" maxlength="100" size="36" onkeyup="this.value = this.value.toUpperCase();" class="pepe" nombremostrar = "Address" data-obligatoriocreacion = "1"/></td>
+    <td ><input id="numero" name="numero" type="text" maxlength="6" size="8" class="pepe"/></td>
+  </tr>
+
+
+
+     <tr>
+
+  <td><strong>Postal Code</strong></td>
+  <td><strong>City / Region</strong></td>
+  <td><strong>Country</strong></td>
+  
+  </tr>
+
+        <td><input id="postal" name="postal" type="text" maxlength="14" size="7" class="pepe" nombremostrar = "Postal Code" data-obligatoriocreacion = "1"/></td>
+        <td><input id="ciudad" name="ciudad" type="text" maxlength="14" size="7" onkeyup="this.value = this.value.toUpperCase();" class="pepe" nombremostrar = "City / Region" data-obligatoriocreacion = "1"/></td>
+        <td>  <select name="pais" id="pais" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Country" data-obligatoriocreacion = "1">
+          <option class="vacio" value="" selected >Select.....</option>
+          </select>
+        </td>
+ <tr>
+          <th COLSPAN=10><h4>Contact Data</h4></th>
+</tr>       
+<tr>
+      <td><strong>Contact Person Name</strong></td>
+      <td><strong>Mail</strong></td>
+      <td><strong>Telephone</strong></td>
+      
+</tr>
+
+<tr>    
+<td><input id="persona" name="persona" type="text" maxlength="40" size="30" onkeyup="this.value = this.value.toUpperCase();" class="pepe" nombremostrar = "Contact Person Name" data-obligatoriocreacion = "1"/></td>
+<td><input id="mail" name="mail" type="text" maxlength="40" size="36" onkeyup="this.value = this.value.toUpperCase();" class="pepe" nombremostrar = "Email" data-obligatoriocreacion = "1"/></td>
+<td><input id="telefono" name="telefono" type="text" maxlength="14" size="7" class="pepe" nombremostrar = "Telephone" data-obligatoriocreacion = "1"/></td>
+</tr>
+    </TABLE>
+
+    <br>
+
+    <TABLE id="tablaFinancialdata">
+
+<tr>
+          <th COLSPAN=10><h4>Financial data</h4></th>
+</tr> 
+
+<tr>
+      <td><strong>Payment term</strong></td>
+      <td><strong>Credit Request Amount</strong></td>
+      
+</tr>
+<tr>    
+
+<td>  <select name="cpago" id="cpago" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Payment term" data-obligatoriocreacion = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+
+<td><input id="Monto" name="Monto" type="text" maxlength="40" size="8" class="pepe"/></td >
+</tr>
+<tr>
+  <td><strong>Market Type</strong></td>
+      <td><strong>Currency</strong></td>
+</tr>
+<tr>
+<td><select id="ClaseCliente" name="ClaseCliente" class="vacío" nombremostrar = "Market Type" data-obligatoriocreacion = "1"/>
+    <option class="vacio" value="" selected >Select.....</option>
+    <option class="vacio" value="A" > A </option>
+    <option class="vacio" value="B" > B </option>
+    <option class="vacio" value="C" > C </option>
+    </select>
+</td>
+<td><select name="Moneda" id="Moneda" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Currency" data-obligatoriocreacion = "1">
+      <option class="vacio" value="" selected >Select.....</option>
+    </select></td>
+
+</tr>
+
+    </TABLE>
+    <br>
+<TABLE id="tablaDispatchInformation">
+<tr>
+          <th COLSPAN=10><h4>Dispatch Information</h4></th>
+</tr>
+<tr>
+      <td><strong>Forwarder</strong></td>
+      <td><strong>Shipping Company</strong></td>
+      
+
+</tr>    
+
+
+<tr>
+<td>  <select name="forwarder" id="forwarder" class="vacio" data-fila="1" required data-sel="solicitud">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+<td>  <select name="naviera" id="naviera" class="vacio" data-fila="1" required data-sel="solicitud">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+</tr>
+
+<tr>
+      <td><strong>Discharge Port</strong></td>
+      
+      <td><strong>Incoterms</strong></td>
+</tr>  
+<tr>
+<td><input id="Puerto" name="Puerto" type="text" maxlength="30" onkeyup="this.value = this.value.toUpperCase();" size="36" class="pepe"/></td> 
+
+<td><select name="Incoterms" id="Incoterms" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Incoterms" data-obligatoriocreacion = "1">
+      <option class="vacio" value="" selected >Select.....</option>
+    </select></td>
+</tr>
+
+
+  </table>
+
+  <br>
+
+  <table id="tablaDatosComerciales">
+    <tr><td><h4 colspan:4> Commercial Information </h4><td><tr>
+    
+    <tr>
+      <td><strong id="lbc1"> Sales Area </strong></td></td>
+      <td><strong id="lbc2"> Direct Account Responsible (MO) </strong> </td></td>
+      
+      
+      
+    <tr>
+      
+      <td><select name="ZonaDeVenta" id="ZonaDeVenta" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Sales Area" data-obligatoriocreacion = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+      <td><select name="grVendedores" id="grVendedores" class="vacio" data-fila="1" required data-sel="solicitud" nombremostrar = "Account Manager" data-obligatoriocreacion = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+      
+      
+    
+    </tr>
+    
+    <tr>
+      <td><strong> Regional Manager</strong></td>
+      <td><strong id="lbc3"> Corporate Director</strong></td>
+    </tr>
+
+    <tr>
+      <td>  <select name="regionalManager" id="regionalManager" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Regional Manager" data-obligatoriocreacion = "1" data-obligatorioMod = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+      <td>  <select name="CorporateDirector" id="CorporateDirector" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Corporate Director" data-obligatoriocreacion = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+    </tr>
+
+    <tr>
+      <td><strong> Client Request Approver</strong></td>
+      <td> <strong id="lbc5">Sales Group</strong> </td>
+    </tr>
+
+    <tr>
+      <td>  <select name="expor" id="expor" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Regional Manager / Account Approver" data-obligatoriocreacion = "1" data-obligatorioMod = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+      <td>  <select name="salesGroup" id="salesGroup" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Sales Group" data-obligatoriocreacion = "0">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+    </tr>
+
+
+
+
+    <tr>
+      <td> <strong id="lbc4">Commercial Condition Approver (FIORI)</strong> </td>  
+    </tr>
+    <tr>
+      <td>  <select name="aprobadorFaborable" id="aprobadorFaborable" class="vacio" data-sel="solicitud" data-fila="1" nombremostrar = "Favorable approver" data-obligatoriocreacion = "1">
+        <option class="vacio" value="" selected >Select.....</option>
+      </select></td>
+      
+    </tr>
+  
+  </table>
+
+  <br>
+
+
+    <table id="tablaComex">
+      <tr> 
+        <td colspan = 3> <h4> Comex <h4> </td> 
+      </tr>
+      <tr id="Comex1">
+        <th> Document Set shipping Information (Name, Address, Attention to, Email): </th>
+        <td > <textarea id="comentarioEmbarque" name="comentarioEmbarque" rows="7" cols="100" ></textarea> </td>
+      </tr>
+        
+        
+      <tr id="Comex2">
+        <th> Notify Party (Name, Address, Attention to, Email):</th>
+        <td> <textarea id="comentarioNotify" name="comentarioNotify" rows="7" cols="100"></textarea> </td>
+      </tr>
+    </table>
+  
+
+  <table>
+      <thead> 
+        <tr>
+          <th COLSPAN=2><h4>Remarks</h4></th>
+        </tr>
+      </thead>      
+  <tr>
+  </tr>
+  <br>  
+    <td> <textarea id="comentario" name="comentario" rows="7" cols="80"></textarea></td>
+    
+  </table>
+        </font>
+        <br/>
+    
+    </form>
+  
+  <div class="btn-box">
+    <button onclick="enviarFormulario()"  type="button">Submit</button>  
+    
+    <button type="reset"> Clear form</button>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+   
+   function enviarFormulario() {
+        verificar_campos_creacion();
+
+        //google.script.run.obtenerValores(document.forms[0]);
+        //HTMLFormElement.reset();
+        //window.alert("ingresado");
+        //document.getElementById("myForm").reset(); //esto borra el form html que esta en la linea 10
+        //document.write ("OK, REGISTRO ALMACENADO");
+        //prueba(e); 
+       
+    }
+    
+    function verificar_campos_creacion(){
+
+    var form = document.forms[0].elements;
+
+    for(var i = 0; i < form.length; i++){
+      
+      if(document.forms[0].solicitu.value == "Crear" && form[i].getAttribute("data-obligatoriocreacion") == '1' && (form[i].value == 0 || form[i].value == "")){
+        alert("The Field " + "'" + form[i].getAttribute("nombremostrar") + "'" + " is mandatory");
+        form[i].focus();
+        return false;
+        break;
+      }
+      else if
+        ((document.forms[0].solicitu.value == "Modificar" || document.forms[0].solicitu.value == "Ampliar" || document.forms[0].solicitu.value == "Bloquear") && form[i].getAttribute("data-obligatorioMod") == '1' && (form[i].value == 0 || form[i].value == "")){
+        alert("The field " + "'" + form[i].getAttribute("nombremostrar") + "'" + " is required");
+        form[i].focus();
+        return false;
+        break;
+      }
+      
+    
+    
+    }
+
+    //google.script.run.obtenerValores(document.forms[0]);
+    
+    /*
+    if(text==0) {
+        document.forms[0].solicitu.focus();
+        //alert("Debes ingresar el nombre");
+        return false;
+        
+    }else{
+        
+        //google.script.run.obtenerValores(document.forms[0]);
+
+        //document.getElementById("myForm").reset(); //esto borra el form html que esta en la linea 10
+        //document.write ("OK, REGISTRO ALMACENADO");
+        //document.forms[0].submit();
+    }
+*/
+    google.script.run.obtenerValores(document.forms[0]);
+    document.write ("OK, REGISTRO ALMACENADO");
+    alert("REGISTRO ALMACENADO");
+} 
+   
+    </script>
+      
+      
+      
+  
+  </body>
+</html>
